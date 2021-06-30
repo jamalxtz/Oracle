@@ -1,0 +1,16 @@
+SELECT produto_id AS Codigo, REGEXP_REPLACE(SUBSTR(CODIGO_BARRA,18,13), '[^[:digit:]]')  AS CB
+     FROM MICROSUM.itens_movimento_codigo_barras
+     WHERE CODIGO_BARRA  IS NOT NULL  AND TO_NUMBER(REGEXP_REPLACE(SUBSTR(CODIGO_BARRA,18,13), '[^[:digit:]]')) <> produto_id
+     GROUP BY CODIGO_BARRA, produto_id
+     ORDER BY CODIGO_BARRA desc
+	 
+	 
+	 ----------------------------------------------------------------------
+	 
+Oracle Pl/Sql: Deixar somente números de um campo
+- abril 03, 2013
+
+SELECT REGEXP_REPLACE('TESTE DE 123 COM LETRAS', '[^[:digit:]]')
+ FROM DUAL;
+ 
+ http://fabricadeprogramacao.blogspot.com/2013/04/oracle-plsql-deixar-somente-numeros-de.html

@@ -1,0 +1,3 @@
+SELECT table_name, column_name
+  FROM all_tab_cols
+ WHERE column_name like '%PRECO_UNITARIO%' -- substituir PRECO_UNITARIO pelo nome da coluna
